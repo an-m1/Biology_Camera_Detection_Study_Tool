@@ -3,7 +3,7 @@ Started at the CTRL-HACK-DEL Hackathon 2024 at York University, and continued to
 
 
 
-# Setup Commands
+# 1) Setup Commands
 
 ## 1.1 First-Time Setup
 ```bash
@@ -38,14 +38,14 @@ source venv/bin/activate
 python -c "import torch; print(torch.rand(5, 3))"
 ```
 
-# 2.1 To run the code
+# 2) To run the code
 
-## Setup
+## 2.1 Setup
 -> Steps 1.1 or 1.2.
 ```bash
 # Execute python code in terminal
 python3 cam_detect.py
 ```
-## Testing
+## 2.2 Testing
 -> Use a blue pen and point the top of the pen, at the key points the camera detects. See what happens when you do!
 
