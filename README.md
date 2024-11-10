@@ -10,6 +10,9 @@ Started at the CTRL-HACK-DEL Hackathon 2024 at York University, and continued to
 # Navigate to project directory
 cd /path/to/project
 
+# Removed the problematic virtual environment (if applicable)
+rm -rf venv
+
 # Create virtual environment
 python3.11 -m venv venv
 
