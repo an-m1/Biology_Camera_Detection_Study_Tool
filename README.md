@@ -27,6 +27,10 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 pip install scikit-learn matplotlib opencv-python numpy pandas
 
+pip install mediapipe
+
+which python3
+
 
 # Verify installation
 python -c "import torch; print(torch.rand(5, 3))"
