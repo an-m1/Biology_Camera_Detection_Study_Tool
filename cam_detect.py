@@ -7,7 +7,6 @@ mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 mp_drawing = mp.solutions.drawing_utils
 
-
 # Function to detect the blue pen tip precisely
 def detect_blue_pen_tip(frame):
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -22,12 +21,7 @@ def detect_blue_pen_tip(frame):
         largest_contour = max(contours, key=cv2.contourArea)
         if 300 < cv2.contourArea(largest_contour) < 2000:  # Size constraints for pen tip
             # Find extreme points
-            leftmost = tuple(largest_contour[largest_contour[:, :, 0].argmin()][0])
-            rightmost = tuple(largest_contour[largest_contour[:, :, 0].argmax()][0])
             topmost = tuple(largest_contour[largest_contour[:, :, 1].argmin()][0])
-            bottommost = tuple(largest_contour[largest_contour[:, :, 1].argmax()][0])
-            
-            # Assume the ballpoint side is the topmost point
             return topmost
     return None
 
@@ -40,6 +34,21 @@ ignored_keypoints = [
     mp_pose.PoseLandmark.MOUTH_LEFT,
     mp_pose.PoseLandmark.MOUTH_RIGHT,
 ]
+
+# Load images for specific keypoints
+image_left_shoulder = cv2.imread('/Users/ankitmodhera/Desktop/camera_biology_study/images/left_shoulder.jpg')
+image_right_shoulder = cv2.imread('/Users/ankitmodhera/Desktop/camera_biology_study/images/right_shoulder.png')
+image_nose = cv2.imread('/Users/ankitmodhera/Desktop/camera_biology_study/images/nose.png')
+
+# Dictionary to map keypoints to images
+keypoint_images = {
+    "LEFT_SHOULDER": image_left_shoulder,
+    "RIGHT_SHOULDER": image_right_shoulder,
+    "NOSE": image_nose,
+}
+
+# Track the currently displayed keypoint
+current_body_part = None
 
 # Start video capture with macOS-compatible backend
 cap = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)
@@ -73,19 +82,6 @@ while cap.isOpened():
         body_part = None
         min_distance = float('inf')
 
-        # Calculate midpoint for the mouth
-        mouth_midpoint = None
-        if (
-            landmarks[mp_pose.PoseLandmark.MOUTH_LEFT.value].visibility > 0.5
-            and landmarks[mp_pose.PoseLandmark.MOUTH_RIGHT.value].visibility > 0.5
-        ):
-            left_mouth = landmarks[mp_pose.PoseLandmark.MOUTH_LEFT.value]
-            right_mouth = landmarks[mp_pose.PoseLandmark.MOUTH_RIGHT.value]
-            mouth_midpoint = (
-                int((left_mouth.x + right_mouth.x) / 2 * w),
-                int((left_mouth.y + right_mouth.y) / 2 * h),
-            )
-
         # Iterate through all major body parts
         for idx, landmark in enumerate(landmarks):
             # Skip ignored keypoints
@@ -102,21 +98,20 @@ while cap.isOpened():
                         min_distance = distance
                         body_part = mp_pose.PoseLandmark(idx).name
 
-        # Check the distance to the mouth midpoint
-        if mouth_midpoint:
-            mouth_distance = np.linalg.norm(np.array(pen_tip) - np.array(mouth_midpoint))
-            if mouth_distance < 50 and mouth_distance < min_distance:
-                min_distance = mouth_distance
-                body_part = "MOUTH"
+        # Display the image as long as the pen is pointing at the body part
+        if body_part and body_part in keypoint_images and keypoint_images[body_part] is not None:
+            if current_body_part != body_part:
+                current_body_part = body_part
+                print(f"Blue pen is pointing at: {body_part}")
+                cv2.imshow("Keypoint Detected", keypoint_images[body_part])
 
-        # Log the detected body part
-        if body_part:
-            print(f"Blue pen is pointing at: {body_part}")
+        # Close the image window if the pen is no longer pointing at a keypoint
+        elif current_body_part:
+            current_body_part = None
+            cv2.destroyWindow("Keypoint Detected")
 
         # Highlight the closest body part and pen tip
         cv2.circle(frame, pen_tip, 5, (255, 0, 0), -1)  # Blue pen tip
-        if mouth_midpoint:
-            cv2.circle(frame, mouth_midpoint, 5, (0, 255, 255), -1)  # Highlight mouth midpoint
         if body_part:
             cv2.putText(frame, f"Pointing at: {body_part}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
