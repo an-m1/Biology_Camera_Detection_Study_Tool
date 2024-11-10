@@ -5,7 +5,7 @@ Started at the CTRL-HACK-DEL Hackathon 2024 at York University, and continued to
 
 # Setup Commands
 
-## First-Time Setup
+## 1.1 First-Time Setup
 ```bash
 # Navigate to project directory
 cd /path/to/project
@@ -26,7 +26,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 python -c "import torch; print(torch.rand(5, 3))"
 ```
 
-## Return Setup
+## 1.2 Return Setup
 ```bash
 # Navigate to project directory
 cd /path/to/project
@@ -36,4 +36,16 @@ source venv/bin/activate
 
 # Verify PyTorch installation
 python -c "import torch; print(torch.rand(5, 3))"
+```
+
+## To run the code
+```bash
+# Setup
+Steps 1.1 or 1.2.
+
+# Execute python code in terminal
+python3 cam_detect.py
+
+# Testing
+Use a blue pen and point the top of the pen, at the key points the camera detects. See what happens when you do!
 ```
