@@ -22,6 +22,9 @@ pip install --upgrade pip setuptools
 # Install PyTorch for CPU
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
+pip install scikit-learn matplotlib opencv-python numpy pandas
+
+
 # Verify installation
 python -c "import torch; print(torch.rand(5, 3))"
 ```
