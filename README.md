@@ -38,14 +38,14 @@ source venv/bin/activate
 python -c "import torch; print(torch.rand(5, 3))"
 ```
 
-## To run the code
-```bash
-# Setup
-Steps 1.1 or 1.2.
+# 2.1 To run the code
 
+## Setup
+-> Steps 1.1 or 1.2.
+```bash
 # Execute python code in terminal
 python3 cam_detect.py
-
-# Testing
-Use a blue pen and point the top of the pen, at the key points the camera detects. See what happens when you do!
 ```
+## Testing
+-> Use a blue pen and point the top of the pen, at the key points the camera detects. See what happens when you do!
+
