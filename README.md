@@ -10,6 +10,9 @@ Started at the CTRL-HACK-DEL Hackathon 2024 at York University, and continued to
 # Navigate to project directory
 cd /path/to/project
 
+# Removed the problematic virtual environment (if applicable)
+rm -rf venv
+
 # Create virtual environment
 python3.11 -m venv venv
 
@@ -21,6 +24,13 @@ pip install --upgrade pip setuptools
 
 # Install PyTorch for CPU
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+pip install scikit-learn matplotlib opencv-python numpy pandas
+
+pip install mediapipe
+
+which python3
+
 
 # Verify installation
 python -c "import torch; print(torch.rand(5, 3))"
