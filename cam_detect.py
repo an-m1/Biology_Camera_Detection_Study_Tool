@@ -161,6 +161,12 @@ while cap.isOpened():
         if body_part:
             print(f"Blue pen is pointing at: {body_part}")
 
+            # Close all previously opened keypoint windows
+            for i in range(len(keypoint_images.get(current_body_part, []))):
+                cv2.destroyWindow(f"Keypoint Detected {i + 1}")
+
+            current_body_part = body_part
+
             for i, img in enumerate(keypoint_images.get(body_part, [])):
                 resized_img = cv2.resize(img, (400, 300))
                 window_name = f"Keypoint Detected {i + 1}"
