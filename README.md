@@ -4,7 +4,7 @@ Started at the CTRL-HACK-DEL Hackathon 2024 at York University, and continued to
 
 Using a common student item, a blue pen, hover over the body's keypoints, and discover what is beneath the skin. Students are to observe, and then try to retain what they observed. This is a more interactive tool, opposed to boring old flashcards.
 
-## Watch me demo the BiocamDST here: [https://youtu.be/bk6PU1QWbGg]
+### Watch me demo the BiocamDST here: [https://youtu.be/bk6PU1QWbGg]
 
 
 # 1) Setup Commands
