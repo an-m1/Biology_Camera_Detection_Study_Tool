@@ -1,21 +1,22 @@
-MIT License
+
+# License for Biology Camera Detection Study Tool (BioCam-DST)
 
 Copyright (c) 2024 Ankit Modhera
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use and share the Software for personal, non-commercial, or educational purposes, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. **Prohibited Commercial Use:**  
+   This Software may not be used, distributed, or incorporated into any work or project for commercial purposes without the explicit, prior written consent of the copyright holder. Commercial purposes include, but are not limited to, selling, licensing, or profiting from the Software in any form.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. **Prohibited Functional Remakes:**  
+   Users are not permitted to create derivative works, modifications, or new projects that replicate the core functionality or significant features of this Software without the explicit, prior written consent of the copyright holder.
+
+3. **Attribution Required:**  
+   Any shared or redistributed copies of the Software must include this license and copyright notice in full, without modification.
+
+4. **No Warranty:**  
+   This Software is provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability arising from the use of the Software.
+
+---
+
+This license applies specifically to the Biology Camera Detection Study Tool (BioCam-DST).
